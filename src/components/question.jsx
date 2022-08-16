@@ -8,11 +8,17 @@ export default function Question(){
     React.useEffect(()=> {
         fetch("https://opentdb.com/api.php?amount=5&category=31&type=boolean")
             .then(res => res.json())
-            .then(data => setQuizData(data.results))
+            .then(data => setQuizData(quiz =>{
+                return data.results.map(dataObj =>{
+                    return {...dataObj, id:nanoid()}
+                })
+               }))
+  
     }, [])
     const quizEl = quizData.map(quiz => (
-    <Questions id={nanoid()}  quizInfo={quiz}/>
+    <Questions   quizInfo={quiz}/>
     ))
+
     return(
         <>
            {quizEl}
