@@ -20,7 +20,7 @@ export default function Question(){
                }))
   
     }, [])
-        
+     console.log(quizData)   
     function pickAnswer(id){
         setQuizData(val => val.map(item => (
         item.id === id ?  {...item, isPicked: !item.isPicked} : {...item}
