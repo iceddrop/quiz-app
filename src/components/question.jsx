@@ -26,10 +26,9 @@ export default function Question(){
         item.id === id ?  {...item, isPicked: !item.isPicked} : {...item}
         ) 
         ))
-        console.log(id)
         }
 
-    console.log(score)
+    
     const quizEl = quizData.map(quiz => (
     <Questions toggle={()=> pickAnswer(quiz.id)} isPicked={quiz.isPicked} updateScore={updateScore}  quizInfo={quiz}/>
     ))
@@ -43,8 +42,12 @@ export default function Question(){
         }
     }
    
-console.log(quizData)
- 
+const ansEl = quizData.map(ans=>{
+    return(
+        <li>{ans.correct_answer}</li>
+    )
+})
+
     return(
         <>
            {quizEl}
@@ -52,6 +55,18 @@ console.log(quizData)
              { finishGame ?  <button onClick={newGame} className="button-1">New Game</button> : <button onClick={submit} className="button-1">Submit</button>}
            </div>
              {finishGame ? <p className='score'>{score}/5</p> : ''} 
+          {finishGame ?
+          <div className='correct-ans'>
+            <p>answer reveal:</p>
+             <ul className='ans'>
+                {ansEl} 
+             </ul>
+             </div>
+             :
+
+            ''
+             
+          }
         </>
     )
 }

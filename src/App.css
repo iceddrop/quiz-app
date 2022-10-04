@@ -114,6 +114,16 @@
   font-size:50px;
   text-align:center;
 }
+.correct-ans{
+  font-family:Share Tech Mono;
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+}
+.ans{
+  list-style:none;
+  display:flex;
+}
 @media only screen and (min-width:461px) and (max-width:768px){
   
 }

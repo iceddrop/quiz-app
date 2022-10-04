@@ -9,24 +9,24 @@ export default function Questions(props){
       ]
   
       const correct = answerArr.find(element => element = props.quizInfo.correct_answer);
-      console.log(correct)
+      
 
   const handleClick = (isCorrect) => {
        if(isCorrect == correct){
         return props.updateScore(1)
-       }else{
-        console.log('wrong')
        }
   }
-  
+  const [refined, setRefined] = React.useState([])
+ React.useEffect(()=>{
+   setRefined(answerArr.sort(func)) 
+ },[])
  
-  var refined = answerArr.sort(func);  
   
   function func(a, b) {  
     return 0.5 - Math.random();
   }  
   
-  console.log(refined);
+
 
     return(
         <div className='quiz-div'>
